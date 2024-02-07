@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  namespace: monitoring
+  name: objstore
+stringData:
+  objstore.yml: |-
+    type: S3
+    config:
+      bucket: test-bucket
+      endpoint: "minio.minio:9000"
+      insecure: true
+      access_key: "TC3xN0fizzOa3j8j"
+      secret_key: "mby1nXTVosoFFh56ImIn6rhtadg22zwH"

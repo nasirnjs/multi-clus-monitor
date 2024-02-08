@@ -93,6 +93,7 @@ spec:
     - metadata:
         name: data
       spec:
+        storageClassName: nfs-client
         accessModes: [ReadWriteOnce]
         resources:
           requests:

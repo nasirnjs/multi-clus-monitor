@@ -42,22 +42,9 @@ spec:
         resources:
           requests:
             storage: 2Gi
-  # remoteWrite:
-  #   - url: https://receiver-write.monitoring.svc.cluster.local:10908/api/v1/receive
-  #     tlsConfig:
-  #       certFile: /secrets/tls.crt
-  #       keyFile: /secrets/tls.key
-  #       caFile: /secrets/ca.crt
-  #     queueConfig:
-  #       maxSamplesPerSend: 1000
-  #       maxShards: 200
-  #       capacity: 2500
-  # containers:
-  #   - name: prometheus
-  #     volumeMounts:
-  #       - name: prometheus-tls
-  #         mountPath: /secrets
-  # volumes:
-  #   - name: prometheus-tls
-  #     secret:
-  #       secretName: prometheus-tls
+  remoteWrite:
+    - url: http://172.17.18.210:10908/api/v1/receive
+      queueConfig:
+        maxSamplesPerSend: 1000
+        maxShards: 200
+        capacity: 2500

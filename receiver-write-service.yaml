@@ -5,7 +5,7 @@ metadata:
   name: receiver-write
   namespace: monitoring
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     - port: 10908
       targetPort: remote-write

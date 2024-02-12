@@ -59,7 +59,7 @@ spec:
             - my_company_default
             - --objstore.config-file=/conf/objstore.yml
             - --remote-write.address=0.0.0.0:10908
-            - --receive.local-endpoint=127.0.0.1:10907
+            - --receive.local-endpoint=receiver-store-1.monitoring.svc.cluster.local:10907
           ports:
             - name: http
               containerPort: 10909

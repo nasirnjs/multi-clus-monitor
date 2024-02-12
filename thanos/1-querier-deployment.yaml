@@ -32,6 +32,8 @@ spec:
             - --query.replica-label=prometheus_replica
             - --store=sidecar.monitoring.svc.cluster.local:10901
             - --store=storegateway.monitoring.svc.cluster.local:10901
+            - --store=receiver-store-1.monitoring.svc.cluster.local:10907
+            - --store=receiver-store-2.monitoring.svc.cluster.local:10907
           ports:
             - name: http
               containerPort: 10902

@@ -43,6 +43,7 @@ spec:
           requests:
             storage: 2Gi
   remoteWrite:
+  #Domain name or LoadBalancer IP of common receiver write service
     - url: http://172.17.18.210:10908/api/v1/receive
       queueConfig:
         maxSamplesPerSend: 1000

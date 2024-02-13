@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: receiver-2
+  name: receiver-1
   namespace: monitoring
 spec:
   replicas: 1
@@ -12,12 +12,12 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: receiver
-      app.kubernetes.io/instance: receiver-2
+      app.kubernetes.io/instance: receiver-1
   template:
     metadata:
       labels:
         app.kubernetes.io/name: receiver
-        app.kubernetes.io/instance: receiver-2
+        app.kubernetes.io/instance: receiver-1
     spec:
       serviceAccount: thanos
       securityContext:
@@ -59,7 +59,12 @@ spec:
             - my_company_default
             - --objstore.config-file=/conf/objstore.yml
             - --remote-write.address=0.0.0.0:10908
-            - --receive.local-endpoint=receiver-store-2.monitoring.svc.cluster.local:10907
+            - --receive.hashrings-algorithm=ketama
+            - --receive.hashrings-file=/conf/hashring.json
+            - --receive.local-endpoint=receiver-store-1.monitoring.svc.cluster.local:10907
+            - --remote-write.server-tls-cert=/secrets/tls.crt
+            - --remote-write.server-tls-key=/secrets/tls.key
+            - --remote-write.server-tls-client-ca=/secrets/ca.crt
           ports:
             - name: http
               containerPort: 10909
@@ -101,10 +106,21 @@ spec:
               subPath: objstore.yml
             - name: data
               mountPath: /data
+            - name: receiver-tls
+              mountPath: /secrets
+            - name: hashring
+              mountPath: /conf/hashring.json
+              subPath: hashring.json
       volumes:
         - name: objstore
           secret:
             secretName: objstore
+        - name: receiver-tls
+          secret:
+            secretName: receiver-tls
+        - name: hashring
+          secret:
+            secretName: hashring
   volumeClaimTemplates:
     - metadata:
         name: data

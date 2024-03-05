@@ -1,0 +1,19 @@
+{
+    "CN": "172.17.18.210",
+    "hosts": [
+        "172.17.18.210",
+        "receiver-store-1.monitoring.svc.cluster.local:10907",
+        "receiver-store-2.monitoring.svc.cluster.local:10907"
+    ],
+    "key": {
+        "algo": "ecdsa",
+        "size": 256
+    },
+    "names": [
+        {
+            "C": "US",
+            "ST": "CA",
+            "L": "Los Banos"
+        }
+    ]
+}

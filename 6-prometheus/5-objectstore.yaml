@@ -11,5 +11,5 @@ stringData:
       bucket: test
       endpoint: "minio.minio:9000"
       insecure: true
-      access_key: "T7Jz5qN3hkVEVcmc"
-      secret_key: "wWvjJvjz7CwKEsFoqS5HHOL7RwobG6Y9"
+      access_key: "1vZ8Xi9yO83yUwuS"
+      secret_key: "LQ2cE6WY0rBqu4vNSpZaYGbwZsibtUZt"

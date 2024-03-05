@@ -62,9 +62,9 @@ spec:
             - --receive.hashrings-algorithm=ketama
             - --receive.hashrings-file=/conf/hashring.json
             - --receive.local-endpoint=receiver-store-2.monitoring.svc.cluster.local:10907
-            - --remote-write.server-tls-cert=/secrets/tls.crt
-            - --remote-write.server-tls-key=/secrets/tls.key
-            - --remote-write.server-tls-client-ca=/secrets/ca.crt
+            # - --remote-write.server-tls-cert=/secrets/tls.crt
+            # - --remote-write.server-tls-key=/secrets/tls.key
+            # - --remote-write.server-tls-client-ca=/secrets/ca.crt
           ports:
             - name: http
               containerPort: 10909
@@ -106,8 +106,8 @@ spec:
               subPath: objstore.yml
             - name: data
               mountPath: /data
-            - name: receiver-tls
-              mountPath: /secrets
+            # - name: receiver-tls
+            #   mountPath: /secrets
             - name: hashring
               mountPath: /conf/hashring.json
               subPath: hashring.json
@@ -115,9 +115,9 @@ spec:
         - name: objstore
           secret:
             secretName: objstore
-        - name: receiver-tls
-          secret:
-            secretName: receiver-tls
+        # - name: receiver-tls
+        #   secret:
+        #     secretName: receiver-tls
         - name: hashring
           secret:
             secretName: hashring

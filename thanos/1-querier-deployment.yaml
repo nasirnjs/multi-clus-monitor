@@ -30,7 +30,6 @@ spec:
             - --grpc-address=0.0.0.0:10901
             - --http-address=0.0.0.0:10902
             - --query.replica-label=prometheus_replica
-            - --store=sidecar.monitoring.svc.cluster.local:10901
             - --store=storegateway.monitoring.svc.cluster.local:10901
             - --store=receiver-store-1.monitoring.svc.cluster.local:10907
             - --store=receiver-store-2.monitoring.svc.cluster.local:10907

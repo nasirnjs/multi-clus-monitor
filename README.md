@@ -2,7 +2,7 @@
 
 
 <p align="center">
-  <img src="./ref-image/Thanos_Remote_Write.png" alt="Thanos culti cluster remote write" title="Thanos culti cluster remote write" height="350" width="900"/>
+  <img src="./ref-image/Thanos_Remote_Write.png" alt="Thanos culti cluster remote write" title="Thanos culti cluster remote write" height="350" width="800"/>
   <br/>
   Pic: Thanos culti cluster remote write
 </p>
